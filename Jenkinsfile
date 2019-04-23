@@ -4,9 +4,9 @@ pipeline {
     registryCredential = 'docker_credentials'
   }
   stages {
-    agent any
     stage('Building image') {
-      steps{
+        agent any     
+        steps{
         script {
           docker.build registry + ":$BUILD_NUMBER"
         }
