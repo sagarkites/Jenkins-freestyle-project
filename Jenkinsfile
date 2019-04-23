@@ -1,13 +1,16 @@
 pipeline {
+  environment {
+    registry = "sagarscott/scott"
+    registryCredential = 'docker_credentials'
+  }
+  stages {
     agent any
-    environment { 
-        CC = 'clang'
-    }
-    stages {
-        stage('Example') {
-            steps {
-                sh 'echo $CC'
-            }
+    stage('Building image') {
+      steps{
+        script {
+          docker.build registry + ":$BUILD_NUMBER"
         }
+      }
     }
-}
+  }
+}  
