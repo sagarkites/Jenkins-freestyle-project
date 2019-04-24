@@ -12,7 +12,7 @@ pipeline {
         }
       }
     }
-    stage(‘Deploy Image’) {
+    stage('Hub') {
       steps{
         script {
           docker.withRegistry( ‘https://cloud.docker.com/u/sagarscott/repository/docker/sagarscott/scott’, registryCredential ) {
