@@ -12,12 +12,12 @@ pipeline {
         }
       }
     }
-    stage('Deploy Docker Image') {
+    stage('Push Docker Image') {
       steps{
         script {
-          docker.withRegistry( ‘https://cloud.docker.com/u/sagarscott/repository/docker/sagarscott/scott’, 
+            docker.withRegistry( ‘https://cloud.docker.com/u/sagarscott/repository/docker/sagarscott/scott’, 
                               registryCredential ) {
-            dockerImage.push() }
+            dockerImage.push("latest") }
         }
       }
     }
