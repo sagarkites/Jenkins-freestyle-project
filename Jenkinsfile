@@ -14,9 +14,6 @@ pipeline {
     }
     stage('Push Docker Image') {
       steps{
-        script {
-            docker.withRegistry( 'https://cloud.docker.com/u/sagarscott/repository/docker/sagarscott/scott', 
-                       registryCredential )
             sh '''
                docker tag 91a75fcd8da7 sagarscott/scott:MyImage
                docker push  sagarscott/scott:MyImage
