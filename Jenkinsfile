@@ -16,7 +16,9 @@ pipeline {
       steps{
         script {
             docker.withRegistry( 'https://cloud.docker.com/u/sagarscott/repository/docker/sagarscott/scott', 
-                       registryCredential ) {
+                       registryCredential )
+          sh "docker login -u sagarscott -p 9490594999"
+          {
             dockerImage.push("latest") 
             }
         }
