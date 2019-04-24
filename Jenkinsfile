@@ -12,13 +12,14 @@ pipeline {
         }
       }
     }
-    stage('Deploy_to_Hub') {
+    stage(‘Deploy Image’) {
       steps{
         script {
           docker.withRegistry( ‘https://cloud.docker.com/u/sagarscott/repository/docker/sagarscott/scott’, registryCredential ) {
-          dockerImage.push()
-                              
+            dockerImage.push()
+          }
         }
       }
-     }
-   }
+    }
+  }
+}
