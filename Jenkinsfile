@@ -1,16 +1,12 @@
 pipeline {
-    agent any
-  environment {
-    registry = "sagarscott/scott"
-    registryCredential = 'docker_credentials'
-  }
-  
   stages {
-    stage('Building image') {   
+    stage('Building image') {
+        agent any
         steps{
-        script {
-          docker.build registry + ":$BUILD_NUMBER"
-        }
+        sh '''
+            cd /var/lib/jenkins/workspace/Docker Build Pipeline
+            sudo docker build .
+           '''
       }
     }
   }
