@@ -1,7 +1,7 @@
 pipeline {
   agent {
     node {
-        label 'any'
+        label 'master'
         customWorkspace '/var/lib/jenkins'
     }
 }
@@ -9,7 +9,8 @@ pipeline {
     stage('Building image') {
         steps{
         sh '''
-            sudo docker build /var/lib/jenkins
+            cd /var/lib/jenkins
+            sudo docker build .
            '''
       }
     }
