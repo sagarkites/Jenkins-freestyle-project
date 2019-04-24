@@ -5,14 +5,14 @@ pipeline {
   }
   agent any
   stages {
-    stage('Building_Docker') {
+    stage('Building Docker Image') {
       steps{
         script {
           dockerImage=docker.build registry + ":$BUILD_NUMBER"
         }
       }
     }
-    stage(‘Deploy Image’) {
+    stage('Deploy Docker Image') {
       steps{
         script {
           docker.withRegistry( ‘https://cloud.docker.com/u/sagarscott/repository/docker/sagarscott/scott’, registryCredential ) {
