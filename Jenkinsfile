@@ -16,9 +16,11 @@ pipeline {
       steps{
         script {
             docker.withRegistry( 'https://cloud.docker.com/u/sagarscott/repository/docker/sagarscott/scott', 
-                       registryCredential ){
-            dockerImage.push("latest") 
-            }
+                       registryCredential )
+            sh '''
+               docker tag 91a75fcd8da7 sagarscott/scott:MyImage
+               docker push  sagarscott/scott:MyImage
+               '''
         }
       }
     }
