@@ -17,7 +17,6 @@ pipeline {
          script {
             docker.withRegistry( ‘https://cloud.docker.com/u/sagarscott/repository/docker/sagarscott/scott’, registryCredential ) {
             dockerImage.push()
-          }
         }
       }
    }
