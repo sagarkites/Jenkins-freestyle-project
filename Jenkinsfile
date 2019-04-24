@@ -1,17 +1,9 @@
 pipeline {
-  agent {
-    node {
-        label 'master'
-        customWorkspace '/var/lib/jenkins'
-    }
-}
+  agent any
   stages {
     stage('Building image') {
         steps{
-        sh '''
-            cd /var/lib/jenkins
-            sudo docker build .
-           '''
+        sh 'echo Welcome' 
       }
     }
   }
