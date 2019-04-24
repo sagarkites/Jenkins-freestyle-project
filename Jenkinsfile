@@ -8,9 +8,19 @@ pipeline {
     stage('Building image') {
       steps{
         script {
-          docker.build registry + ":$BUILD_NUMBER"
+          dockerImage = docker.build registry + ":$BUILD_NUMBER"
+        }
+      }
+    }
+    stage('Deploy Docker Image') {
+      steps{
+        script {
+          docker.withRegistry( ‘https://cloud.docker.com/u/sagarscott/repository/docker/sagarscott/scott’, registryCredential ) {
+            dockerImage.push()
+          }
         }
       }
     }
   }
 }
+
