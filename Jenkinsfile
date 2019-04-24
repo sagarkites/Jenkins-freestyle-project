@@ -1,7 +1,7 @@
 pipeline {
   agent {
     node {
-        label 'master'
+        label 'any'
         customWorkspace '/var/lib/jenkins'
     }
 }
