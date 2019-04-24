@@ -3,7 +3,9 @@ pipeline {
   stages {
     stage('Building image') {
         steps{
-        sh 'echo Welcome' 
+        sh '''
+           sudo cat /etc/*release
+           '''
       }
     }
   }
