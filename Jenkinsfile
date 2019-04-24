@@ -1,9 +1,5 @@
 pipeline {
-  agent any {
-    node {
-        customWorkspace '/var/lib/jenkins'
-    }
-}
+  agent any 
   stages {
     stage('Building image') {
         steps{
