@@ -1,11 +1,10 @@
 pipeline {
-  agent any 
+  agent any {  customWorkspace '/var/lib/jenkins' }
   stages {
     stage('Building image') {
         steps{
         sh '''
-            cd /var/lib/jenkins
-            sudo docker build .
+            sudo docker build /var/lib/jenkins
            '''
       }
     }
