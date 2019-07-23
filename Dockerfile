@@ -1,9 +1,8 @@
-FROM centos:6
-
-RUN yum clean all
-
-ENTRYPOINT ["/usr/bin/cat"]
-
-CMD ["/etc/passwd"]
-
+# Base Image
+FROM nginx
+# Copies the configuration file 
+COPY nginx.conf /etc/nginx/nginx.conf
+# port to expose outside 
 EXPOSE 80
+# Command
+CMD ["nginx", "-g", "daemon off;"]
