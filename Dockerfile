@@ -1,9 +1,6 @@
-FROM ubuntu:latest
-RUN apt-get update
-RUN apt-get install -y python-pip && apt-get install -y python-dev
-RUN apt-get install -y build-essential
+FROM python
 COPY . /app
 WORKDIR /app
-RUN pip install -r requirements.txt
+RUN pip install -r requirements.txt && pip install --upgrade pip
 ENTRYPOINT ["python"]
 CMD ["app.py"]
